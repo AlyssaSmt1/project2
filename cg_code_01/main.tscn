@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c440tvi2kqq2t"]
+[gd_scene load_steps=6 format=3 uid="uid://c440tvi2kqq2t"]
 
 [ext_resource type="Texture2D" uid="uid://22q7bmh41lir" path="res://MeterGrid.png" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dltv1vpsweu4d" path="res://camera_rig.gd" id="2_0xm2m"]
@@ -9,6 +9,10 @@ size = Vector3(1, 0.05, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
 albedo_color = Color(0.621524, 0.621524, 0.621524, 1)
 albedo_texture = ExtResource("1_ig7tw")
+
+[sub_resource type="Environment" id="Environment_0xm2m"]
+background_mode = 1
+background_color = Color(0.307475, 0.201914, 0.278337, 1)
 
 [node name="main" type="Node3D"]
 
@@ -24,3 +28,6 @@ transform = Transform3D(1, 0, 0, 0, 0.973327, 0.229421, 0, -0.229421, 0.973327, 
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.0103477, -0.292472, 0.956218, -0.00316478, 0.956274, 0.292455, -0.999941, 0, -0.0108208, 1.69551, 0.537235, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0xm2m")
