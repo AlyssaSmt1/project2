@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c440tvi2kqq2t"]
+[gd_scene load_steps=43 format=3 uid="uid://c440tvi2kqq2t"]
 
 [ext_resource type="Texture2D" uid="uid://22q7bmh41lir" path="res://MeterGrid.png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bxpi4dbn3mgt5" path="res://bank1.glb" id="4_1bvp3"]
@@ -138,6 +138,7 @@ data = PackedVector3Array(-1.05, 0.5, 0.25, 1.05, 0.5, 0.25, -1.05, -0.5, 0.25, 
 size = Vector3(2.2, 1, 4)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1bvp3"]
+friction = 0.2
 bounce = 0.26
 
 [sub_resource type="GDScript" id="GDScript_1bvp3"]
@@ -146,7 +147,7 @@ script/source = "extends RigidBody3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	linear_velocity = Vector3(5, 0, 0)  # Bewegt sich entlang der X-Achse
+	linear_velocity = Vector3(50, 0, 0)  # Bewegt sich entlang der X-Achse
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 "
@@ -171,6 +172,8 @@ height = 1.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7mycd"]
 friction = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_272bh"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_1bvp3"]
 top_radius = 0.2
@@ -422,7 +425,9 @@ shape = SubResource("SphereShape3D_1bvp3")
 
 [node name="ball2" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66659, 1.02084, 13.6167)
+mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_1bvp3")
+gravity_scale = 0.835
 freeze_mode = 1
 script = SubResource("GDScript_1bvp3")
 
@@ -436,7 +441,7 @@ shape = SubResource("SphereShape3D_1bvp3")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Kegel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.49, 0.554, 12.8406)
-mass = 0.5
+mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_lquwl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Kegel/RigidBody3D"]
@@ -447,6 +452,7 @@ mesh = SubResource("CylinderMesh_ycdy4")
 
 [node name="RigidBody3D2" type="RigidBody3D" parent="Kegel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.48961, 0.554062, 13.3549)
+mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_7mycd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Kegel/RigidBody3D2"]
@@ -457,6 +463,8 @@ mesh = SubResource("CylinderMesh_ycdy4")
 
 [node name="RigidBody3D3" type="RigidBody3D" parent="Kegel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.48961, 0.554062, 13.8624)
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_272bh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Kegel/RigidBody3D3"]
 shape = SubResource("CylinderShape3D_dg77c")
@@ -466,6 +474,7 @@ mesh = SubResource("CylinderMesh_ycdy4")
 
 [node name="RigidBody3D4" type="RigidBody3D" parent="Kegel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.48961, 0.554062, 14.3619)
+mass = 0.001
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Kegel/RigidBody3D4"]
 shape = SubResource("CylinderShape3D_dg77c")
@@ -475,6 +484,7 @@ mesh = SubResource("CylinderMesh_ycdy4")
 
 [node name="RigidBody3D5" type="RigidBody3D" parent="Kegel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.03994, 0.554062, 14.0945)
+mass = 0.001
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Kegel/RigidBody3D5"]
 shape = SubResource("CylinderShape3D_dg77c")
@@ -484,6 +494,7 @@ mesh = SubResource("CylinderMesh_ycdy4")
 
 [node name="RigidBody3D6" type="RigidBody3D" parent="Kegel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.03994, 0.554062, 13.5598)
+mass = 0.001
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Kegel/RigidBody3D6"]
 shape = SubResource("CylinderShape3D_dg77c")
@@ -493,6 +504,7 @@ mesh = SubResource("CylinderMesh_ycdy4")
 
 [node name="RigidBody3D7" type="RigidBody3D" parent="Kegel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.03994, 0.554062, 13.0858)
+mass = 0.001
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Kegel/RigidBody3D7"]
 shape = SubResource("CylinderShape3D_dg77c")
@@ -502,6 +514,7 @@ mesh = SubResource("CylinderMesh_ycdy4")
 
 [node name="RigidBody3D8" type="RigidBody3D" parent="Kegel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.59028, 0.554062, 13.3046)
+mass = 0.001
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Kegel/RigidBody3D8"]
 shape = SubResource("CylinderShape3D_dg77c")
@@ -511,6 +524,7 @@ mesh = SubResource("CylinderMesh_ycdy4")
 
 [node name="RigidBody3D9" type="RigidBody3D" parent="Kegel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.59028, 0.554062, 13.8029)
+mass = 0.001
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Kegel/RigidBody3D9"]
 shape = SubResource("CylinderShape3D_dg77c")
@@ -520,6 +534,7 @@ mesh = SubResource("CylinderMesh_ycdy4")
 
 [node name="RigidBody3D10" type="RigidBody3D" parent="Kegel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.14061, 0.554062, 13.5476)
+mass = 0.001
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Kegel/RigidBody3D10"]
 shape = SubResource("CylinderShape3D_dg77c")
